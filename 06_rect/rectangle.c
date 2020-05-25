@@ -16,15 +16,61 @@ int max (int a, int b) {
 }
 
 //Declare your rectangle structure here!
-
+typedef struct rec{
+  int x;
+  int y;
+  int width;
+  int height;
+}rectangle;
 
 rectangle canonicalize(rectangle r) {
   //WRITE THIS FUNCTION
+  if (r.height<0 || r.width<0){
+    if (r.height<0 && r.width<0){
+      r.height=-r.height;
+      r.y=r.y-r.height;
+      r.width=-r.width;
+      r.x=r.x-r.width;
+    }
+    else if (r.height<0){
+      r.height=-r.height;
+      r.y=r.y-r.height;
+    }else if (r.width<0){
+      r.width=-r.width;
+      r.x=r.x-r.width;  
+    }
+ }
   return r;
 }
 rectangle intersection(rectangle r1, rectangle r2) {
   //WRITE THIS FUNCTION
-  return r1;
+  r1=canonicalize(r1);
+  r2=canonicalize(r2);
+  rectangle r;
+  
+  if (r2.x+r2.width<r1.x || r1.x+r1.width<r2.x){
+
+    r.width=0;
+    r.height=0;
+    r.x=r1.x;
+    r.y=r1.y;
+  }else if(r1.y+r1.height<r2.y || r2.y+r2.height<r1.y) {
+    r.x=r1.x;
+    r.y=r1.y;    
+    r.width=0;
+    r.height=0;
+  }else{  
+    r.x=max(r1.x,r2.x);
+    r.y=max(r1.y,r2.y);
+    int tempx=min(r1.x+r1.width,r2.x+r2.width);
+    int tempy=min(r1.y+r1.height,r2.y+r2.height);
+    r.width=tempx-r.x;
+    // if(r1.width<0)r1.width=-r1.width;
+    r.height=tempy-r.y;
+    // if(r1.height<0)r1.height=-r1.height;
+   
+  }
+  return r;
 }
 
 //You should not need to modify any code below this line
