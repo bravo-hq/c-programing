@@ -21,7 +21,7 @@ int main(){
 
   int arr5[]={10,9,7,6};
   if (maxSeq(arr5,4)!=1) return EXIT_FAILURE;
-
+  
   return EXIT_SUCCESS;
 }
 

@@ -2,12 +2,14 @@
 #include <stdlib.h>
 
 size_t maxSeq(int * array, size_t n){
+  // printf("in function\n");
+  
   if (n==0) return 0;
 
   size_t count=1;
   size_t pcount=1;
-  size_t current;
-  size_t perivious=array[0];
+  int current;
+  int perivious=array[0];
   for (size_t i=0;i<n;i++){
     current=array[i];
     if (current>perivious){
@@ -19,5 +21,6 @@ size_t maxSeq(int * array, size_t n){
     }
     perivious=current;
   }
-  return pcount;
+  if (count<pcount)  return pcount;
+  else return count;
 }
