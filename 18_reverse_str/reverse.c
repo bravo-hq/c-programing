@@ -4,27 +4,22 @@
 
 void reverse(char * str) {
   //WRITE ME!
-  int length, c;
-  char *begin, *end, temp;
+  int length,begin,end;
+  char temp;
 
   length =0;
   while (str[length]!='\0') length++;
 
-  begin  = str;
-  end    = str;
+  begin  = 0;
+  end    = length-1;
 
-  for (c = 0; c < length - 1; c++)
-    end++;
-
-  for (c = 0; c < length/2; c++)
-    {
-      temp   = *end;
-      *end   = *begin;
-      *begin = temp;
-
-      begin++;
-      end--;
-    }
+  while (begin<end){
+    temp=str[begin];
+    str[begin]=str[end];
+    str[end]=temp;
+    begin++;
+    end--;
+  }
 }
 
 int main(void) {
