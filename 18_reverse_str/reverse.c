@@ -7,6 +7,8 @@ void reverse(char * str) {
   int length,begin,end;
   char temp;
 
+  if (str==NULL) return;
+  
   length =0;
   while (str[length]!='\0') length++;
 
