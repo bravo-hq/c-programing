@@ -25,7 +25,7 @@ const char * ranking_to_string(hand_ranking_t r) {
 }
 
 char value_letter(card_t c) {
-  char ans;
+  char ans='0';
   switch (c.value){
   case 11:
     ans='J';
@@ -51,7 +51,7 @@ char value_letter(card_t c) {
 
 
 char suit_letter(card_t c) {
-  char ans;
+  char ans='0';
   switch (c.suit){
   case SPADES:
     ans='s';
