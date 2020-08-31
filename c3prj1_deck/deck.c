@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <assert.h>
 #include "deck.h"
-#include "cards.h"
 
 void print_hand(deck_t * hand){
   for (size_t i=0; i<hand->n_cards; i++){
