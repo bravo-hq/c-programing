@@ -1,15 +1,14 @@
-Grading at Mon Aug 31 20:28:30 UTC 2020
+Grading at Mon Aug 31 20:33:09 UTC 2020
 Compiling deck.c
 Compiling cards.c
-cards.c: In function ‘suit_letter’:
-cards.c:71:10: error: ‘ans’ may be used uninitialized in this function [-Werror=maybe-uninitialized]
-   return ans;
-          ^
-cards.c: In function ‘print_card’:
-cards.c:54:8: error: ‘ans’ may be used uninitialized in this function [-Werror=maybe-uninitialized]
-   char ans;
-        ^
-cc1: all warnings being treated as errors
-Could not compile your cards.c!
+Linking cards.o deck.o deck-c4.o and the grader's .o file
+Checking the output of all the functions other than shuffle
+Your file matched the expected output
+ - Those functions seem to work!
+Checking your shuffle results with a 6 card hand...
+  Least common hand: 0.130000%
+  Most  common hand: 0.147350%
+  Perfectly even is: 0.138888%
+ Excellent!
 
-Overall Grade: FAILED
+Overall Grade: A
