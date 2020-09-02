@@ -105,7 +105,9 @@ int check_straight(deck_t *hand,size_t index, suit_t fs,int n){
   default:    
     for (size_t i=index+1; i<hand->n_cards;i++){
       card_t current=(*(hand->cards)[i]);
-      if (perv.suit != fs) break;
+      if (i==index+1){
+	if (perv.suit != fs) break;
+      }
       if (perv.value-current.value==0){
 	perv=current;
 	if(temp>=n) return 1;
