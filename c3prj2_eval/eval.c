@@ -105,11 +105,12 @@ int check_straight(deck_t *hand,size_t index, suit_t fs,int n){
   default:    
     for (size_t i=index+1; i<hand->n_cards;i++){
       card_t current=(*(hand->cards)[i]);
-      if (perv.value-current.value==0 && perv.suit==fs && current.suit==fs){
+      if (perv.suit != fs) break;
+      if (perv.value-current.value==0){
 	perv=current;
 	if(temp>=n) return 1;
 	continue;
-      } else if (perv.value-current.value==1 && perv.suit==fs && current.suit==fs){
+      } else if (perv.value-current.value==1 && current.suit==fs){
 	temp++;
 	countf++;
 	perv=current;
@@ -136,28 +137,32 @@ int check_ACE_low(deck_t * hand,size_t index,suit_t fs){
   switch (fs){
   case NUM_SUITS:
     if (perv.value==14){
-      int five_idx=0;
+      int five_idx=-1;
       for (size_t j=index+1; j<hand->n_cards;j++){
 	if (hand->cards[j]->value==5){
 	  five_idx=j;
 	  break;
 	} 	
       }
+      if (five_idx!=-1){
       int check= check_straight(hand,five_idx,fs,4);
       if (check==1) return -1;
+      }
     }
     break;
   default:
     if (perv.value==14 && perv.suit==fs){
-      int five_idx=0;
+      int five_idx=-1;
       for (size_t j=index+1; j<hand->n_cards;j++){
 	if (hand->cards[j]->value==5){
 	  five_idx=j;
 	  break;
 	}
       }
+      if (five_idx!=-1){
       int check= check_straight(hand,five_idx,fs,4);
       if (check==1) return -1;
+      }
     }
   }
 
