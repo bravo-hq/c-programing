@@ -206,14 +206,17 @@ int compare_hands(deck_t * hand1, deck_t * hand2) {
   qsort(hand2->cards,hand2->n_cards,sizeof(hand1->cards[0]),card_ptr_comp);
   hand_eval_t h1=evaluate_hand(hand1);
   hand_eval_t h2=evaluate_hand(hand2);
-  if (h1.ranking- h2.ranking>0) return -1;
-  if (h1.ranking-h2.ranking<0) return 1;
-  if (h1.ranking-h2.ranking==0){
+  if (h1.ranking- h2.ranking>0){
+    return -1;
+  }else if (h1.ranking-h2.ranking<0){
+    return 1;
+  }else if (h1.ranking-h2.ranking==0){
     for (size_t i=0;i<5;i++){
-      int v1=(*(h1.cards[i])).value;
-      int v2=(*(h2.cards[i])).value;
-      if (v1-v2>0) return 1;
-      if (v1-v2<0) return -1;
+      int v1=h1.cards[i]->value;
+      int v2=h2.cards[i]->value;
+      if (v1-v2>0){
+	return 1;
+      }else if (v1-v2<0) return -1;
     }
   }
   return 0;
