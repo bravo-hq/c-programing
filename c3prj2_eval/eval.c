@@ -102,13 +102,21 @@ int check_straight(deck_t *hand,size_t index, suit_t fs,int n){
     }
     return 0;
     break;
-  default:    
+  default:;
+    int check=-1;
     for (size_t i=index+1; i<hand->n_cards;i++){
       card_t current=(*(hand->cards)[i]);
       if (i==index+1){
 	if (perv.suit != fs) break;
       }
       if (perv.value-current.value==0){
+	if (check !=-1){
+	  if (current.suit==fs){
+	    temp++;
+	    countf++;
+	    check=-1;
+	  }
+	}
 	perv=current;
 	if(temp>=n) return 1;
 	continue;
@@ -117,7 +125,8 @@ int check_straight(deck_t *hand,size_t index, suit_t fs,int n){
 	countf++;
 	perv=current;
 	if (temp>=n) return 1;
-      } else if (perv.value - current.value==1 && perv.suit==fs){
+      } else if (perv.value - current.value==1 && perv.suit-current.suit<0){
+	check=0;
 	perv=current;
 	if(temp>=n) return 1;
 	continue;	
