@@ -5,6 +5,7 @@
 void freq(FILE * f, int * arr){
   int c;
   while ((c = fgetc(f)) != EOF) {
+    printf("%c",c);
     if (isalpha(c)) {
       c-='a';
       arr[c]++;      
@@ -24,7 +25,8 @@ int keycheck(int arr[]){
 	  loc = i;
 	}
     }
-  int key = 'a'+loc -'e';
+  int key = loc+22;
+  key = key%26;
   return key;
 }
 
