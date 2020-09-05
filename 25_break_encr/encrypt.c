@@ -44,7 +44,7 @@ int main (int argc, char ** argv){
   freq(f,arrf);
   int key=keycheck(arrf);
   if (key>=0 && key <26){
-    printf("%d is the key\n",key);
+    printf("%d\n",key);
     return EXIT_SUCCESS;
   }
   fprintf(stderr,"failed.\n");
