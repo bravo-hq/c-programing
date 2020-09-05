@@ -5,7 +5,7 @@
 void freq(FILE * f, int * arr){
   int c;
   while ((c = fgetc(f)) != EOF) {
-    printf("%c",c);
+    //    printf("%c",c);
     if (isalpha(c)) {
       c=tolower(c);
       c-='a';
