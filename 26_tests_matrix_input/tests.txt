@@ -1,0 +1,10 @@
+empty.txt
+lineTooLong.txt
+lineTooShort.txt
+notEnoughLines.txt
+tooManyLines.txt
+valid.txt
+unsigned255.txt
+h hello.txt
+hi.txt
+
