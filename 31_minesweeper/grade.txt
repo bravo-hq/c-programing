@@ -1,124 +1,24 @@
-Grading at Tue Sep  8 21:24:58 UTC 2020
+Grading at Tue Sep  8 21:27:10 UTC 2020
 Attempting to compile minesweeper.c
 #################################################
 testcase1:
 Your output is correct
-  - Valgrind reported errors
-valgrind was not clean
-==160== Memcheck, a memory error detector
-==160== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==160== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==160== 
-==160== Parent PID: 159
-==160== 
-==160== 
-==160== HEAP SUMMARY:
-==160==     in use at exit: 48 bytes in 3 blocks
-==160==   total heap usage: 8 allocs, 5 frees, 8,396 bytes allocated
-==160== 
-==160== 48 (24 direct, 24 indirect) bytes in 1 blocks are definitely lost in loss record 2 of 2
-==160==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==160==    by 0x400AEC: makeBoard (in /graderhome/work/31_minesweeper/minesweeper)
-==160==    by 0x401B15: main (in /graderhome/work/31_minesweeper/minesweeper)
-==160== 
-==160== LEAK SUMMARY:
-==160==    definitely lost: 24 bytes in 1 blocks
-==160==    indirectly lost: 24 bytes in 2 blocks
-==160==      possibly lost: 0 bytes in 0 blocks
-==160==    still reachable: 0 bytes in 0 blocks
-==160==         suppressed: 0 bytes in 0 blocks
-==160== 
-==160== For counts of detected and suppressed errors, rerun with: -v
-==160== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 #################################################
 testcase2:
 Your output is correct
-  - Valgrind reported errors
-valgrind was not clean
-==181== Memcheck, a memory error detector
-==181== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==181== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==181== 
-==181== Parent PID: 180
-==181== 
-==181== 
-==181== HEAP SUMMARY:
-==181==     in use at exit: 16 bytes in 2 blocks
-==181==   total heap usage: 9 allocs, 7 frees, 8,384 bytes allocated
-==181== 
-==181== 16 bytes in 2 blocks are definitely lost in loss record 1 of 1
-==181==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==181==    by 0x400AEC: makeBoard (in /graderhome/work/31_minesweeper/minesweeper)
-==181==    by 0x401B15: main (in /graderhome/work/31_minesweeper/minesweeper)
-==181== 
-==181== LEAK SUMMARY:
-==181==    definitely lost: 16 bytes in 2 blocks
-==181==    indirectly lost: 0 bytes in 0 blocks
-==181==      possibly lost: 0 bytes in 0 blocks
-==181==    still reachable: 0 bytes in 0 blocks
-==181==         suppressed: 0 bytes in 0 blocks
-==181== 
-==181== For counts of detected and suppressed errors, rerun with: -v
-==181== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 #################################################
 testcase3:
 Your output is correct
-  - Valgrind reported errors
-valgrind was not clean
-==202== Memcheck, a memory error detector
-==202== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==202== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==202== 
-==202== Parent PID: 201
-==202== 
-==202== 
-==202== HEAP SUMMARY:
-==202==     in use at exit: 880 bytes in 20 blocks
-==202==   total heap usage: 27 allocs, 7 frees, 9,320 bytes allocated
-==202== 
-==202== 880 (160 direct, 720 indirect) bytes in 2 blocks are definitely lost in loss record 2 of 2
-==202==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==202==    by 0x400AEC: makeBoard (in /graderhome/work/31_minesweeper/minesweeper)
-==202==    by 0x401B15: main (in /graderhome/work/31_minesweeper/minesweeper)
-==202== 
-==202== LEAK SUMMARY:
-==202==    definitely lost: 160 bytes in 2 blocks
-==202==    indirectly lost: 720 bytes in 18 blocks
-==202==      possibly lost: 0 bytes in 0 blocks
-==202==    still reachable: 0 bytes in 0 blocks
-==202==         suppressed: 0 bytes in 0 blocks
-==202== 
-==202== For counts of detected and suppressed errors, rerun with: -v
-==202== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 #################################################
 testcase4:
 Your output is correct
-  - Valgrind reported errors
-valgrind was not clean
-==223== Memcheck, a memory error detector
-==223== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==223== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==223== 
-==223== Parent PID: 222
-==223== 
-==223== 
-==223== HEAP SUMMARY:
-==223==     in use at exit: 440 bytes in 10 blocks
-==223==   total heap usage: 15 allocs, 5 frees, 8,816 bytes allocated
-==223== 
-==223== 440 (80 direct, 360 indirect) bytes in 1 blocks are definitely lost in loss record 2 of 2
-==223==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==223==    by 0x400AEC: makeBoard (in /graderhome/work/31_minesweeper/minesweeper)
-==223==    by 0x401B15: main (in /graderhome/work/31_minesweeper/minesweeper)
-==223== 
-==223== LEAK SUMMARY:
-==223==    definitely lost: 80 bytes in 1 blocks
-==223==    indirectly lost: 360 bytes in 9 blocks
-==223==      possibly lost: 0 bytes in 0 blocks
-==223==    still reachable: 0 bytes in 0 blocks
-==223==         suppressed: 0 bytes in 0 blocks
-==223== 
-==223== For counts of detected and suppressed errors, rerun with: -v
-==223== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 
-Overall Grade: B
+Overall Grade: A
