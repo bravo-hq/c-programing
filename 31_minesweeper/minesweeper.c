@@ -46,9 +46,9 @@ board_t * makeBoard(int w, int h, int numMines) {
   b->width=w;
   b->height=h;
   b->totalMines=numMines;
-  *(b->board)=malloc(h*sizeof(int));
+  *(b->board)=calloc(h,sizeof(int*));
   for (size_t i=0;i<h;i++){
-    b->board[i]=(int *)malloc(w*sizeof(int));
+    b->board[i]=(int *)calloc(w,sizeof(int));
     for (size_t j=0; j<w;j++){
     b->board[i][j]=UNKNOWN;
     }
