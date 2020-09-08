@@ -17,8 +17,53 @@ void sortData(char ** data, size_t count) {
 }
 
 int main(int argc, char ** argv) {
+  char ** line=NULL;
+  char * curr=NULL;
+  size_t sz;  
+  size_t i=0;
   
-  //WRITE YOUR CODE HERE!
-  
+  if (argc==1){
+    while(getline(&curr,&sz,stdin)>=0){
+      line=realloc(line,(i+1)*sizeof(*line));
+      line[i]=curr;
+      curr=NULL;
+      i++;
+    }
+    free(curr);
+    sortData(line,i);
+    for (size_t j=0;j<i;j++){
+      printf("%s",line[j]);
+      free(line[j]);
+    }
+    free(line);
+    return EXIT_SUCCESS;
+  }
+
+  if (argc>1){
+    for (size_t h=1; h<argc; h++){
+      FILE * f= fopen(argv[h],"r");
+      if (f==NULL){
+	perror("could not open the file");
+	return EXIT_FAILURE;
+      }
+      while(getline(&curr,&sz,f)>=0){
+	line=realloc(line,(i+1)*sizeof(*line));
+	line[i]=curr;
+	curr=NULL;
+	i++;
+      }
+      sortData(line,i);
+      for (size_t j=0;j<i;j++){
+	printf("%s",line[j]);
+	free(line[j]);
+      }
+      i=0;
+      //    curr=NULL;
+      // line=NULL;
+    }
+    free(curr);
+    free(line);
+  } 
   return EXIT_SUCCESS;
 }
+
