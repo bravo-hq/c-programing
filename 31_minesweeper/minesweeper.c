@@ -46,7 +46,7 @@ board_t * makeBoard(int w, int h, int numMines) {
   b->width=w;
   b->height=h;
   b->totalMines=numMines;
-  *(b->board)=calloc(h,sizeof(int*));
+  b->board=(int**)malloc(h*sizeof(int*));
   for (size_t i=0;i<h;i++){
     b->board[i]=(int *)calloc(w,sizeof(int));
     for (size_t j=0; j<w;j++){
@@ -114,9 +114,9 @@ int countMines(board_t * b, int x, int y) {
   //WRITE ME!
   int count=0;
   for (int i=x-1;i<=x+1;i++){
-    if (i<0 || i>b->width) continue;
+    if (i<0 || i>=b->width) continue;
     for (int j=y+1;j>=y-1;j--){
-      if (j<0 || j>b->height) continue;
+      if (j<0 || j>=b->height) continue;
       if (i==x && j==y) continue;
       if (IS_MINE(b->board[j][i])) count++;
     }
@@ -159,10 +159,11 @@ int checkWin(board_t * b) {
 
 void freeBoard(board_t * b) {
   //WRITE ME!
-  for (size_t i=0;i<b->height;i++){
-    free(b->board[i]);
-  }
-  free(*b->board);
+  //  for (size_t i=0;i<b->height;i++){
+  // free(b->board[i]);
+  // }
+  free(*(b->board));
+  free(b);
 }
 
 int readInt(char ** linep, size_t * lineszp) {
