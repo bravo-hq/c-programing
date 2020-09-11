@@ -22,25 +22,28 @@ kvarray_t * readKVs(const char * fname) {
     perror("there is a problem with opennig the file\n");
     exit (EXIT_FAILURE);
   }
-  // char ** line=NULL;
+  char ** line=NULL;
   char * curr=NULL;
   size_t sz;
   int i=0;
-  kvarray_t * data=malloc(sizeof(*data));
-  data->pair=NULL;
+  //  kvarray_t * data=malloc(sizeof(*data));
+  //data->pair=NULL;
   while(getline(&curr,&sz,f)>=0){
-    data->pair=realloc(data->pair,(i+1)*sizeof(*data->pair));
-    data->pair[i]=splitValue(curr);
+    line=realloc(line,(i+1)*sizeof(*line));
+    line[i]=curr;
     // free(curr);
     curr=NULL;
     i++;
   }
   free(curr);
+  kvarray_t * data=malloc(sizeof(*data));
   data->length=i;
-  /*  for (size_t j=0;j<i;j++){
+  data->pair=malloc(i*sizeof(*data->pair));
+  for (size_t j=0;j<i;j++){
     data->pair[j]=splitValue(line[j]);
   }
-  for (size_t j=0;j<i;j++){
+  data->line=line;
+/*  for (size_t j=0;j<i;j++){
     free(line[j]);
   }
   free(line);*/
@@ -53,6 +56,11 @@ kvarray_t * readKVs(const char * fname) {
 
 void freeKVs(kvarray_t * pairs) {
   //WRITE ME
+  
+  for (size_t i=0;i<pairs->length;i++){
+    free(pairs->line[i]);
+  }
+  free(pairs->line);
   for (size_t j=0;j<pairs->length;j++){
       free(pairs->pair[j]);
   }

@@ -14,7 +14,7 @@ struct _kvarray_t {
   //DEFINE ME!
   int length;
   kvpair_t ** pair;
-  
+  char ** line;
 };
 typedef struct _kvarray_t kvarray_t;
 
