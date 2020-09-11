@@ -38,5 +38,8 @@ void printCounts(counts_t * c, FILE * outFile) {
 
 void freeCounts(counts_t * c) {
   //WRITE ME
+  //  for(size_t i=0; i<c->size;i++){
+  free(c->arr);
+  //  }
   free(c);
 }
