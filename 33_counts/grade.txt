@@ -1,95 +1,19 @@
-Grading at Fri Sep 11 21:36:59 UTC 2020
+Grading at Fri Sep 11 21:39:00 UTC 2020
 Attempting to compile:
 #################################################
 testcase1:
 Your output is correct
-  - Valgrind reported errors
-valgrind was not clean
-==668== Memcheck, a memory error detector
-==668== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==668== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==668== 
-==668== Parent PID: 667
-==668== 
-==668== 
-==668== HEAP SUMMARY:
-==668==     in use at exit: 112 bytes in 1 blocks
-==668==   total heap usage: 9 allocs, 8 frees, 4,560 bytes allocated
-==668== 
-==668== 112 bytes in 1 blocks are definitely lost in loss record 1 of 1
-==668==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==668==    by 0x400838: addCount (in /graderhome/work/33_counts/counts_test)
-==668==    by 0x400A5A: main (in /graderhome/work/33_counts/counts_test)
-==668== 
-==668== LEAK SUMMARY:
-==668==    definitely lost: 112 bytes in 1 blocks
-==668==    indirectly lost: 0 bytes in 0 blocks
-==668==      possibly lost: 0 bytes in 0 blocks
-==668==    still reachable: 0 bytes in 0 blocks
-==668==         suppressed: 0 bytes in 0 blocks
-==668== 
-==668== For counts of detected and suppressed errors, rerun with: -v
-==668== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 #################################################
 testcase2:
 Your output is correct
-  - Valgrind reported errors
-valgrind was not clean
-==685== Memcheck, a memory error detector
-==685== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==685== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==685== 
-==685== Parent PID: 684
-==685== 
-==685== 
-==685== HEAP SUMMARY:
-==685==     in use at exit: 16 bytes in 1 blocks
-==685==   total heap usage: 3 allocs, 2 frees, 4,128 bytes allocated
-==685== 
-==685== 16 bytes in 1 blocks are definitely lost in loss record 1 of 1
-==685==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==685==    by 0x4C2FDEF: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==685==    by 0x400838: addCount (in /graderhome/work/33_counts/counts_test)
-==685==    by 0x400A5A: main (in /graderhome/work/33_counts/counts_test)
-==685== 
-==685== LEAK SUMMARY:
-==685==    definitely lost: 16 bytes in 1 blocks
-==685==    indirectly lost: 0 bytes in 0 blocks
-==685==      possibly lost: 0 bytes in 0 blocks
-==685==    still reachable: 0 bytes in 0 blocks
-==685==         suppressed: 0 bytes in 0 blocks
-==685== 
-==685== For counts of detected and suppressed errors, rerun with: -v
-==685== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 #################################################
 testcase3:
 Your output is correct
-  - Valgrind reported errors
-valgrind was not clean
-==702== Memcheck, a memory error detector
-==702== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==702== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==702== 
-==702== Parent PID: 701
-==702== 
-==702== 
-==702== HEAP SUMMARY:
-==702==     in use at exit: 128 bytes in 1 blocks
-==702==   total heap usage: 10 allocs, 9 frees, 4,688 bytes allocated
-==702== 
-==702== 128 bytes in 1 blocks are definitely lost in loss record 1 of 1
-==702==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==702==    by 0x400838: addCount (in /graderhome/work/33_counts/counts_test)
-==702==    by 0x400A5A: main (in /graderhome/work/33_counts/counts_test)
-==702== 
-==702== LEAK SUMMARY:
-==702==    definitely lost: 128 bytes in 1 blocks
-==702==    indirectly lost: 0 bytes in 0 blocks
-==702==      possibly lost: 0 bytes in 0 blocks
-==702==    still reachable: 0 bytes in 0 blocks
-==702==         suppressed: 0 bytes in 0 blocks
-==702== 
-==702== For counts of detected and suppressed errors, rerun with: -v
-==702== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 
-Overall Grade: B
+Overall Grade: A
