@@ -2,7 +2,7 @@
 #define __COUNTS_H__
 struct _one_count_t {
   //DEFINE ME
-  char * name;
+  const  char * name;
   int count;
 };
 typedef struct _one_count_t one_count_t;

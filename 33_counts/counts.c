@@ -7,6 +7,7 @@ counts_t * createCounts(void) {
   counts_t * ans=malloc(sizeof(*ans));
   ans->unkwn=0;
   ans->size=0;
+  ans->arr=NULL;
   return ans;
 }
 void addCount(counts_t * c, const char * name) {
@@ -18,8 +19,13 @@ void addCount(counts_t * c, const char * name) {
   for (size_t i=0;i<c->size;i++){
     if (strcmp(c->arr[i].name,name)==0){
       c->arr[i].count++;
+      return;
     }
-  }  
+  } 
+    c->size++;
+    c->arr=realloc(c->arr,c->size*sizeof(*c->arr));
+    c->arr[c->size-1].count=1;
+    c->arr[c->size-1].name=name;
 }
 void printCounts(counts_t * c, FILE * outFile) {
   //WRITE ME
