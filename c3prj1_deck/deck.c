@@ -46,19 +46,23 @@ void assert_full_deck(deck_t * d) {
 void add_card_to (deck_t * deck,card_t c){
   deck->n_cards++;
   deck->cards=realloc(deck->cards,deck->n_cards*sizeof(*deck->cards));
-  *deck->cards[deck->n_cards-1]=c;
+  card_t * temp=malloc(sizeof(*temp));
+  temp[0]=c;
+  deck->cards[deck->n_cards-1]=temp;
+   free(temp);
 }
 
 card_t * add_empty_card(deck_t * deck){
   card_t c;
-  c.value=0;
-  c.suit=0;
+  c.value=1;
+  c.suit=NUM_SUITS;
   add_card_to(deck,c);
   return deck->cards[deck->n_cards-1];
 }
 
 deck_t * make_deck_exclude(deck_t * excluded_cards){
   deck_t * ans=malloc(sizeof(*ans));
+  ans->n_cards=0;
   int check=0;
   for (unsigned i=0;i<52;i++){
     card_t c=card_from_num(i);
