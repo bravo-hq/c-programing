@@ -62,13 +62,13 @@ deck_t * make_deck_exclude(deck_t * excluded_cards){
   int check=0;
   for (unsigned i=0;i<52;i++){
     card_t c=card_from_num(i);
-    for (unsigned j=0;j<excluded_cards->n_cards,j++){
+    for (unsigned j=0;j<excluded_cards->n_cards;j++){
       if (c.value==excluded_cards->cards[j]->value && c.suit==excluded_cards->cards[j]->suit){
 	check=1;
 	break;
       }     
     }
-    if (check=1) {
+    if (check==1) {
       check=0;
       continue;
     }
@@ -84,7 +84,7 @@ deck_t * build_remaining_deck(deck_t ** hands, size_t n_hands){
   for (size_t i=0;i<n_hands;i++){
     deck_t * h=hands[i];
     for (size_t j=0;i<h->n_cards;j++){
-      add_card_to(exclude,h->cards[j]);
+      add_card_to(exclude,*h->cards[j]);
     }
   }
   deck_t * ans=make_deck_exclude(exclude);
