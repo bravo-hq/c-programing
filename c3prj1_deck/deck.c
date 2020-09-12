@@ -49,12 +49,12 @@ void add_card_to (deck_t * deck,card_t c){
   card_t * temp=malloc(sizeof(*temp));
   temp[0]=c;
   deck->cards[deck->n_cards-1]=temp;
-   free(temp);
+  // free(temp);
 }
 
 card_t * add_empty_card(deck_t * deck){
   card_t c;
-  c.value=1;
+  c.value=0;
   c.suit=NUM_SUITS;
   add_card_to(deck,c);
   return deck->cards[deck->n_cards-1];
