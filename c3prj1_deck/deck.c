@@ -88,7 +88,7 @@ deck_t * build_remaining_deck(deck_t ** hands, size_t n_hands){
   exclude->cards=NULL;
   for (size_t i=0;i<n_hands;i++){
     deck_t * h=hands[i];
-    for (size_t j=0;i<h->n_cards;j++){
+    for (size_t j=0;j<h->n_cards;j++){
       add_card_to(exclude,*h->cards[j]);
     }
   }
@@ -96,6 +96,7 @@ deck_t * build_remaining_deck(deck_t ** hands, size_t n_hands){
   free_deck(exclude);
   return ans;
 }
+
 void free_deck(deck_t * deck){
   for (size_t i=0;i<deck->n_cards;i++){
     free(deck->cards[i]);

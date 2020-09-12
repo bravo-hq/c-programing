@@ -14,7 +14,7 @@ int main (){
     card_t a =card_from_num(10);
     card_t b =card_from_num(20);
     deck->cards=malloc(deck->n_cards*sizeof(*deck->cards));
-     deck->cards[0]=&a;
+    deck->cards[0]=&a;
     deck->cards[1]=&b;
     deck->cards[2]=&c;
     // add_card_to(deck,card_from_num(40));
@@ -23,12 +23,14 @@ int main (){
     printf("%p\n",(void *)p);
     print_hand(deck);
     printf("\n");
-    print_card(*p);
+    deck_t * new =build_remaining_deck(&deck,1);
+    print_hand(new);
+    /*    print_card(*p);
     deck_t *new=make_deck_exclude(deck);
     printf("\n");
     printf("%d\n",(int)new->n_cards);
     print_hand(new);
     // printf("%d",c.suit);
-    // card_t * c1=add_empty_card(
+    // card_t * c1=add_empty_card(*/
  return EXIT_SUCCESS;
 }
