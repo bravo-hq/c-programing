@@ -56,7 +56,7 @@ counts_t * countFile(const char * filename, kvarray_t * kvPairs) {
   for (size_t i=0;i<data->length;i++){
     addCount(c,lookupValue(kvPairs,data->pair[i]->key));
   }
-  // freeKVs(data);
+  freeKVs(data);
   return c;
 }
 
