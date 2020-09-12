@@ -1,0 +1,23 @@
+Grading at Sat Sep 12 12:10:54 UTC 2020
+Compiling deck.c -> deck.o
+deck.c: In function ‘make_deck_exclude’:
+deck.c:65:48: error: left-hand operand of comma expression has no effect [-Werror=unused-value]
+     for (unsigned j=0;j<excluded_cards->n_cards,j++){
+                                                ^
+deck.c:65:52: error: expected ‘;’ before ‘)’ token
+     for (unsigned j=0;j<excluded_cards->n_cards,j++){
+                                                    ^
+deck.c:71:5: error: suggest parentheses around assignment used as truth value [-Werror=parentheses]
+     if (check=1) {
+     ^
+deck.c: In function ‘build_remaining_deck’:
+deck.c:87:27: error: incompatible type for argument 2 of ‘add_card_to’
+       add_card_to(exclude,h->cards[j]);
+                           ^
+deck.c:46:6: note: expected ‘card_t {aka struct card_tag}’ but argument is of type ‘card_t * {aka struct card_tag *}’
+ void add_card_to (deck_t * deck,card_t c){
+      ^
+cc1: all warnings being treated as errors
+Compilation of deck.c failed
+
+Overall Grade: F
