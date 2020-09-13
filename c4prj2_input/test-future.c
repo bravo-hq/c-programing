@@ -23,7 +23,7 @@ int main(){
   shuffle(deck);
   shuffle(deck);
   for (size_t i=0;i<fc->n_decks;i++){
-    //   printf("fc deck %zu contains %d cards\n",i,fc->decks[i].n_cards);
+       printf("fc deck %zu contains %zu cards\n",i,fc->decks[i].n_cards);
     continue;
   }
   future_cards_from_deck(deck,fc);
