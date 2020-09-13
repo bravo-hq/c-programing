@@ -99,14 +99,14 @@ card_t card_from_letters(char value_let, char suit_let) {
   case 'J': temp.value=11; break;
   case 'K': temp.value=13; break;
   case 'Q': temp.value=12; break;
-  default: printf("value check"); //temp.value=0;
+  default: temp.value=0;
   }
   switch (suit_let){
   case 'c': temp.suit=CLUBS; break;
   case 's': temp.suit=SPADES; break;
   case 'd': temp.suit=DIAMONDS; break;
   case 'h': temp.suit=HEARTS; break;
-  default:  printf("suit check");//temp.suit=NUM_SUITS;
+  default: temp.suit=NUM_SUITS;
   }
   return temp;
 }
