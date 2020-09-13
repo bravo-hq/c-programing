@@ -1,0 +1,12 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "future.h"
+#include "eval.h"
+#include "deck.h"
+#include "cards.h"
+
+//deck_t ** read_input(FILE * f, size_t * n_hands, future_cards_t * fc){
+
+
+//}
