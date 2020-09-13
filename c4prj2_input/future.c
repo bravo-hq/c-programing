@@ -11,18 +11,25 @@ void add_future_card(future_cards_t * fc, size_t index, card_t * ptr){
     size_t temp=fc->n_decks;
     fc->decks=realloc(fc->decks,(index+1)*sizeof(*fc->decks));
     fc->n_decks=index+1;
-    fc->decks[index].n_cards=0;
-    fc->decks[index].cards=NULL;
+    //   fc->decks[index].n_cards=0;
+    // fc->decks[index].cards=NULL;
     for (size_t i=temp;i<fc->n_decks;i++){
-     	fc->decks[i].cards=NULL;
-	fc->decks[index].n_cards=0;
+      fc->decks[i].cards=NULL;
+      fc->decks[i].n_cards=0;
     }
   }else{
-        fc->decks=realloc(fc->decks,fc->n_decks*sizeof(*fc->decks));
+    fc->decks=realloc(fc->decks,fc->n_decks*sizeof(*fc->decks));
   }
+  if (fc->decks[index].n_cards==0){
+  fc->decks[index].cards=malloc(sizeof(card_t *));
+  fc->decks[index].cards[fc->decks[index].n_cards]=ptr;
   fc->decks[index].n_cards++;
-  fc->decks[index].cards=realloc(fc->decks[index].cards,fc->decks[index].n_cards*sizeof(card_t *));
-  fc->decks[index].cards[fc->decks[index].n_cards-1]=ptr;
+  }else{
+  fc->decks[index].cards=realloc(fc->decks[index].cards,(fc->decks[index].n_cards+1)*sizeof(card_t *));
+  fc->decks[index].cards[fc->decks[index].n_cards]=ptr;
+  fc->decks[index].n_cards++;    
+  }
+  
 }
 
 void future_cards_from_deck(deck_t * deck, future_cards_t * fc){
