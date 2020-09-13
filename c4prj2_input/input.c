@@ -34,6 +34,11 @@ deck_t * hand_from_string(const char * str, future_cards_t * fc){
     }
     data[i-1]=token;
     token = strtok(NULL,(const char *) " ");
+    //    printf("%s ",token);
+  }
+  if (strcmp(data[i-1],"")==0){
+    i--;
+    data=realloc(data,i*sizeof(*data));
   }
   if (i<5){
     perror("not enough hands\n");

@@ -33,6 +33,7 @@ void add_future_card(future_cards_t * fc, size_t index, card_t * ptr){
 }
 
 void future_cards_from_deck(deck_t * deck, future_cards_t * fc){
+  //|| fc->n_decks > deck->n_cards
   if (fc->n_decks==0 || fc->n_decks > deck->n_cards){
     perror("no future decks");
     return;
@@ -44,18 +45,3 @@ void future_cards_from_deck(deck_t * deck, future_cards_t * fc){
     }
   }
 }
-/*
-void future_cards_from_deck(deck_t * deck, future_cards_t * fc){
-  if(fc->n_decks>deck->n_cards){
-    fprintf(stderr,"Unknown>Available cards to draw from");
-    return;
-  }
-  for(int i=0;i<fc->n_decks;i++){
-    if(fc->decks[i].n_cards==0){
-      continue;
-    }
-    for(int x=0;x<fc->decks[i].n_cards;x++){
-      (*(fc->decks[i].cards[x])).value=(*(deck->cards[i])).value;
-      (*(fc->decks[i].cards[x])).suit=(*(deck->cards[i])).suit;
-    }}}
-*/
