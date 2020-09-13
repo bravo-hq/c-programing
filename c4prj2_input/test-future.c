@@ -22,7 +22,7 @@ int main(){
   deck_t * deck=build_remaining_deck(data,*n_hands);
   shuffle(deck);
   shuffle(deck);
-  /*  for (size_t i=0;i<fc->n_decks;i++){
+   for (size_t i=0;i<fc->n_decks;i++){
        printf("fc deck %zu contains %zu cards\n",i,fc->decks[i].n_cards);
     continue;
   }
@@ -35,7 +35,7 @@ int main(){
   for (size_t i=0;i<(*n_hands);i++){
     free_deck(data[i]);
   }
-  free(data);*/
+  free(data);
   // for (size_t i=0;i<fc->n_decks;i++){
   // print_hand(fc->decks);
   // }
