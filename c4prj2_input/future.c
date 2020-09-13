@@ -26,8 +26,9 @@ void add_future_card(future_cards_t * fc, size_t index, card_t * ptr){
 }
 
 void future_cards_from_deck(deck_t * deck, future_cards_t * fc){
-  if (fc->n_decks==0){
+  if (fc->n_decks==0 || fc->n_decks > deck->n_cards){
     perror("no future decks");
+    return;
   }
   for (size_t i=0; i<fc->n_decks;i++){
     deck_t temp=fc->decks[i];
