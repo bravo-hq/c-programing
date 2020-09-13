@@ -13,10 +13,16 @@ deck_t * hand_from_string(const char * str, future_cards_t * fc){
   char* token = strtok(str1,(const char *) " ");
   if (token ==NULL){
     perror("could not read the start of the sentence\n");
-    exit (EXIT_FAILURE);
+    // exit (EXIT_FAILURE);
+  }
+  if (strcmp(token,"\n")==0){
+    perror("just white space");
+    // exit (EXIT_FAILURE);
+    return NULL;
   }
   char ** data= malloc(sizeof(*data));
   int i=0;
+  
   // Keep printing tokens while one of the
   // delimiters present in str[].
   while (token != NULL) {
@@ -31,7 +37,7 @@ deck_t * hand_from_string(const char * str, future_cards_t * fc){
   }
   if (i<5){
     perror("not enough hands\n");
-    exit(EXIT_FAILURE);
+    // exit(EXIT_FAILURE);
   }
   deck_t * ans=malloc(sizeof(*ans));
   ans->n_cards=0;
@@ -58,7 +64,9 @@ deck_t ** read_input(FILE * f, size_t * n_hands, future_cards_t * fc){
   
   while(getline(&curr,&sz,f)>=0){
     ans=realloc(ans,(i+1)*sizeof(*ans));
-    ans[i]=hand_from_string(curr,fc);
+    deck_t * temp=hand_from_string(curr,fc);
+    if (temp==NULL) continue;
+    ans[i]=temp;
     free(curr);
     curr=NULL;
     i++;
