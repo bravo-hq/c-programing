@@ -22,6 +22,10 @@ deck_t * hand_from_string(const char * str, future_cards_t * fc){
   while (token != NULL) {
     i++;
     data=realloc(data,i*sizeof(*data));
+    char * check=strchr(token,'\n');
+    if (check!=NULL){
+      *check='\0';
+    }
     data[i-1]=token;
     token = strtok(NULL,(const char *) " ");
   }
@@ -35,7 +39,9 @@ deck_t * hand_from_string(const char * str, future_cards_t * fc){
   for (size_t j=0; j<i;j++){
     if (data[j][0]=='?'){
       card_t * c= add_empty_card(ans);
-      add_future_card(fc,data[j][1]-'0',c);
+      char * temp=data[j];
+      temp++;
+      add_future_card(fc,atoi(temp),c);
       continue;
     }
     add_card_to(ans,card_from_letters(data[j][0],data[j][1]));

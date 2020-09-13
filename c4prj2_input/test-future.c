@@ -12,7 +12,8 @@ int main(){
   future_cards_t* fc = (future_cards_t*)calloc(1,sizeof(future_cards_t));
   fc->decks = (deck_t*)calloc(1,sizeof(deck_t));
   fc->n_decks = 0;
-  size_t* n_hands = NULL;
+  size_t num_hand=2;
+  size_t* n_hands = &num_hand;
   deck_t ** data=read_input(f,n_hands,fc);
   for(size_t i=0;i<(*n_hands);i++){
   print_hand(data[i]);
