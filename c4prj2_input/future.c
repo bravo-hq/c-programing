@@ -10,6 +10,8 @@ void add_future_card(future_cards_t * fc, size_t index, card_t * ptr){
   if (fc->n_decks<index+1){
     fc->decks=realloc(fc->decks,(index+1)*sizeof(*fc->decks));
     fc->n_decks=index+1;
+    fc->decks[index].n_cards=0;
+    fc->decks[index].cards=NULL;
     for (size_t i=0;i<fc->n_decks;i++){
       if (fc->decks[i].n_cards<1){
 	fc->decks[i].cards=NULL;
