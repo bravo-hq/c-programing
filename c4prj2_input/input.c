@@ -31,6 +31,7 @@ deck_t * hand_from_string(const char * str, future_cards_t * fc){
   }
   deck_t * ans=malloc(sizeof(*ans));
   ans->n_cards=0;
+  ans->cards=NULL;
   for (size_t j=0; j<i;j++){
     if (data[j][0]=='?'){
       card_t * c= add_empty_card(ans);
@@ -52,9 +53,11 @@ deck_t ** read_input(FILE * f, size_t * n_hands, future_cards_t * fc){
   while(getline(&curr,&sz,f)>=0){
     ans=realloc(ans,(i+1)*sizeof(*ans));
     ans[i]=hand_from_string(curr,fc);
+    free(curr);
     curr=NULL;
     i++;
   }
   free(curr);
+  *n_hands=i;
   return ans;
 }
