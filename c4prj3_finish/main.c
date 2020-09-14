@@ -66,7 +66,7 @@ int main(int argc, char ** argv) {
     }
   }
   for(size_t i=0;i<*n_hands;i++){
-    printf("Hand %zu won %u / %u times (%.2f%%)\n",i,arr[i],(unsigned)MontCar,(double)arr[i]/(double)MontCar);  
+    printf("Hand %zu won %u / %u times (%.2f%%)\n",i,arr[i],(unsigned)MontCar,(double)arr[i]/(double)MontCar*100);  
   }
   printf("And there were %u ties\n",arr[*n_hands]);
   free(arr);
