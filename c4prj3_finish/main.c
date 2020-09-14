@@ -8,6 +8,20 @@
 #include "future.h"
 #include "input.h"
 
+void print_card_stderr(card_t c) {
+  char ans=value_letter(c);
+  fprintf(stderr,"%c",ans);
+  ans=suit_letter(c);
+  fprintf(stderr,"%c",ans);
+}
+
+void print_hand_stderr(deck_t * hand){
+  for (size_t i=0; i<hand->n_cards; i++){
+    print_card_stderr(*(hand->cards)[i]);
+    printf(" ");
+  }
+}
+
 
 
 int main(int argc, char ** argv) {
@@ -32,17 +46,12 @@ int main(int argc, char ** argv) {
   deck_t ** data=read_input(f,n_hands,fc);
   deck_t * deck=build_remaining_deck(data,*n_hands);
   int * arr=calloc(*n_hands+1,sizeof(*arr));
-  fprintf(stderr,"check %d",1);
   for (size_t i=0;i<MontCar;i++){
-    // printf("i : %zu\n",i);
+    fprintf(stderr,"i : %zu\n",i);
     shuffle(deck);
     future_cards_from_deck(deck,fc);
     deck_t * max=data[0];
-    //    if (i==667){
-    //  print_hand(data[0]);
-    //  printf("\n");
-    //  print_hand(data[1]);
-    // }
+    
     int max_idx=0;
     int tie=1;
     for(size_t j=1;j<*n_hands;j++){
