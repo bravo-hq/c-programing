@@ -7,7 +7,7 @@
 #include "eval.h"
 #include "future.h"
 #include "input.h"
-
+/*
 void print_card_stderr(card_t c) {
   char ans=value_letter(c);
   fprintf(stderr,"%c",ans);
@@ -23,7 +23,7 @@ void print_hand_stderr(deck_t * hand){
 }
 
 int card_ptr_comp(const void * vp1, const void * vp2);
-
+*/
 
 int main(int argc, char ** argv) {
   //YOUR CODE GOES HERE
@@ -52,7 +52,7 @@ int main(int argc, char ** argv) {
     shuffle(deck);
     future_cards_from_deck(deck,fc);
     deck_t * max=data[0];
-    if (i==17482){
+    /*  if (i==17482){
       qsort(data[0]->cards,data[0]->n_cards,sizeof(data[0]->cards[0]),card_ptr_comp);
       qsort(data[1]->cards,data[1]->n_cards,sizeof(data[1]->cards[0]),card_ptr_comp);
       qsort(data[2]->cards,data[2]->n_cards,sizeof(data[2]->cards[0]),card_ptr_comp);
@@ -62,7 +62,7 @@ int main(int argc, char ** argv) {
       printf("\n");
       print_hand(data[2]);
       printf("\n");
-    }
+      }*/
     int max_idx=0;
     int tie=1;
     for(size_t j=1;j<*n_hands;j++){
