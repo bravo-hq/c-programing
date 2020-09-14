@@ -47,11 +47,13 @@ int main(int argc, char ** argv) {
   deck_t * deck=build_remaining_deck(data,*n_hands);
   int * arr=calloc(*n_hands+1,sizeof(*arr));
   for (size_t i=0;i<MontCar;i++){
-    fprintf(stderr,"i : %zu\n",i);
+    // fprintf(stderr,"i : %zu\n",i);
     shuffle(deck);
     future_cards_from_deck(deck,fc);
     deck_t * max=data[0];
-    
+    if (i==17482){
+
+    }
     int max_idx=0;
     int tie=1;
     for(size_t j=1;j<*n_hands;j++){

@@ -69,6 +69,7 @@ deck_t ** read_input(FILE * f, size_t * n_hands, future_cards_t * fc){
   
   while(getline(&curr,&sz,f)>=0){
     ans=realloc(ans,(i+1)*sizeof(*ans));
+    fprintf(stderr,"%s\n",curr);
     deck_t * temp=hand_from_string(curr,fc);
     if (temp==NULL) continue;
     ans[i]=temp;
