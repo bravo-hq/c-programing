@@ -121,6 +121,14 @@ int check_straight(deck_t *hand,size_t index, suit_t fs,int n){
 	if(temp>=n) return 1;
 	continue;
       } else if (perv.value-current.value==1 && current.suit==fs){
+	if (check !=-1){
+	  if (perv.suit!=fs){
+	    // temp++;
+	    // countf++;
+	    check=-1;
+	    break;
+	  }
+	}
 	temp++;
 	countf++;
 	perv=current;
