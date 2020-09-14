@@ -32,6 +32,7 @@ int main(int argc, char ** argv) {
   deck_t ** data=read_input(f,n_hands,fc);
   deck_t * deck=build_remaining_deck(data,*n_hands);
   int * arr=calloc(*n_hands+1,sizeof(*arr));
+  fprintf(stderr,"check %d",1);
   for (size_t i=0;i<MontCar;i++){
     // printf("i : %zu\n",i);
     shuffle(deck);
