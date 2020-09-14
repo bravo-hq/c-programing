@@ -22,6 +22,7 @@ void print_hand_stderr(deck_t * hand){
   }
 }
 
+int card_ptr_comp(const void * vp1, const void * vp2);
 
 
 int main(int argc, char ** argv) {
@@ -47,12 +48,20 @@ int main(int argc, char ** argv) {
   deck_t * deck=build_remaining_deck(data,*n_hands);
   int * arr=calloc(*n_hands+1,sizeof(*arr));
   for (size_t i=0;i<MontCar;i++){
-    // fprintf(stderr,"i : %zu\n",i);
+    //fprintf(stderr,"i : %zu\n",i);
     shuffle(deck);
     future_cards_from_deck(deck,fc);
     deck_t * max=data[0];
     if (i==17482){
-
+      qsort(data[0]->cards,data[0]->n_cards,sizeof(data[0]->cards[0]),card_ptr_comp);
+      qsort(data[1]->cards,data[1]->n_cards,sizeof(data[1]->cards[0]),card_ptr_comp);
+      qsort(data[2]->cards,data[2]->n_cards,sizeof(data[2]->cards[0]),card_ptr_comp);
+      print_hand(data[0]);
+      printf("\n");
+      print_hand(data[1]);
+      printf("\n");
+      print_hand(data[2]);
+      printf("\n");
     }
     int max_idx=0;
     int tie=1;

@@ -133,7 +133,7 @@ int check_straight(deck_t *hand,size_t index, suit_t fs,int n){
 	countf++;
 	perv=current;
 	if (temp>=n) return 1;
-      } else if (perv.value - current.value==1 && perv.suit-current.suit>0){
+      } else if (perv.value - current.value==1 && (int)perv.suit-(int)current.suit>0){
 	check=0;
 	perv=current;
 	if(temp>=n) return 1;
@@ -246,6 +246,7 @@ int compare_hands(deck_t * hand1, deck_t * hand2) {
 //implementation in eval-c4.o) so that the
 //other functions we have provided can make
 //use of get_match_counts.
+
 unsigned * get_match_counts(deck_t * hand){
   unsigned * ans=calloc(hand->n_cards,sizeof(*ans));
   for (size_t i=0;i<hand->n_cards;i++){
